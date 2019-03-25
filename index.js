@@ -1,4 +1,11 @@
 'use strict'
+var AV = require('leanengine');
+
+AV.init({
+  appId: process.env.LEANCLOUD_APP_ID || 'zchi3WeWDFNRnHaK0Ph1Jgbq-gzGzoHsz',
+  appKey: process.env.LEANCLOUD_APP_KEY || 'key',
+  masterKey: process.env.LEANCLOUD_APP_MASTER_KEY || 'key'
+});
 
 const Analytics = require('./lib/Analytics')
 const config = require('./config')
