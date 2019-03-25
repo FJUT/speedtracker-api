@@ -1,3 +1,5 @@
+http://localhost:1234/v1/test/guotao/speedtracker2/master/default?key=gt
+
 <img src="https://speedtracker.org/assets/images/logo-full-square-inverted.png" width="300">
 
 # API
