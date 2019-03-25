@@ -39,9 +39,9 @@ github.authenticate(config.get('githubToken'))
 
 let db = new Database(connection => {
   console.log('(*) Established database connection')
-
-  server.listen(config.get('port'), () => {
-    console.log(`(*) Server listening on port ${config.get('port')}`)
+  const PORT = process.env.PORT || config.get('port') || 3000
+  server.listen(PORT, () => {
+    console.log(`(*) Server listening on port ${PORT}`)
   })
 
   scheduler = new Scheduler({
@@ -87,6 +87,12 @@ const testHandler = (req, res) => {
 
 server.get('/v1/test/:user/:repo/:branch/:profile', testHandler)
 server.post('/v1/test/:user/:repo/:branch/:profile', testHandler)
+server.get('/1.1/functions/_ops/metadatas', function(req, res, next) {
+  // 如果任何一个路由都没有返回响应，则抛出一个 404 异常给后续的异常处理器
+  if (!res.headersSent) {
+    res.status(404).send('Sorry cant find that!');
+  }
+});
 
 // ------------------------------------
 // Endpoint: Connect
