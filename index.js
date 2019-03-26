@@ -87,6 +87,7 @@ const testHandler = (req, res) => {
     response.reqParams = req.params
     res.send(JSON.stringify(response))
   }).catch(err => {
+    err.reqParams = req.params
     ErrorHandler.log(err)
 
     res.status(500).send(JSON.stringify(err))
