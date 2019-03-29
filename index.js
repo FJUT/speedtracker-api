@@ -93,7 +93,9 @@ const testHandler = (req, res) => {
 }
 
 server.get('/', function(req, res, next) {
-  res.status(200).send('https://kainy.cn/');
+  // res.status(200).send('https://kainy.cn/');
+  res.writeHead(301, {'Location' : 'https://kainy.cn/'});
+  res.end();
 });
 server.get('/v1/test/:user/:repo/:branch/:profile', testHandler)
 server.post('/v1/test/:user/:repo/:branch/:profile', testHandler)
