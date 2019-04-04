@@ -97,6 +97,9 @@ server.get('/', function(req, res, next) {
   res.writeHead(301, {'Location' : 'https://kainy.cn/'});
   res.end();
 });
+server.get('/cronjob', function(req, res, next) {
+  res.status(200).send('https://kainy.cn/');
+});
 server.get('/v1/test/:user/:repo/:branch/:profile', testHandler)
 server.post('/v1/test/:user/:repo/:branch/:profile', testHandler)
 server.get('/1.1/functions/_ops/metadatas', function(req, res, next) {
