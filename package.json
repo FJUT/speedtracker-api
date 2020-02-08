@@ -30,7 +30,7 @@
     "universal-analytics": "^0.4.6",
     "leanengine": "^3.3.2",
     "leancloud-storage": "^3.0.2",
-    "webpagetest": "github:eduardoboucas/webpagetest-api",
+    "webpagetest": "github:marcelduran/webpagetest-api",
     "yaml-front-matter": "^3.4.0"
   },
   "devDependencies": {}
