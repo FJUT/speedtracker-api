@@ -36,9 +36,9 @@ let scheduler
 // GitHub
 // ------------------------------------
 
-const github = new GitHub(null, config.get('githubToken'))
+const github = new GitHub()
 
-// github.authenticate(config.get('githubToken'))
+github.authenticate(config.get('githubToken'))
 
 // ------------------------------------
 // DB connection
@@ -114,9 +114,9 @@ server.get('/1.1/functions/_ops/metadatas', function(req, res, next) {
 // ------------------------------------
 
 server.get('/v1/connect/:user/:repo', (req, res) => {
-  const github = new GitHub(GitHub.GITHUB_CONNECT, config.get('githubToken'))
+  const github = new GitHub(GitHub.GITHUB_CONNECT)
 
-  // github.authenticate(config.get('githubToken'))
+  github.authenticate(config.get('githubToken'))
 
   github.api.users.getRepoInvites({}).then(response => {
     let invitationId
